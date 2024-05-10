@@ -1,0 +1,75 @@
+{
+  "name": "byway",
+  "version": "1.0.0",
+  "description": "Byway - study platform",
+  "main": "index.tsx",
+  "scripts": {
+    "start": "cross-env SERVE=true webpack serve",
+    "build:dev": "cross-env NODE_ENV=development webpack",
+    "build:prod": "cross-env NODE_ENV=production webpack",
+    "prettier": "npx prettier . --write",
+    "stylelint:": "stylelint src/**/*.css",
+    "stylelint:fix:": "stylelint src/**/*.css --fix",
+    "css-sorter": "postcss src/**/*.css --use css-declaration-sorter --replace --no-map",
+    "clean": "rd /s /q dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VladKolhanov/Byway.git"
+  },
+  "author": "VladKolhanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VladKolhanov/Byway/issues"
+  },
+  "homepage": "https://github.com/VladKolhanov/Byway#readme",
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "not dead"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "@babel/preset-react": "^7.24.1",
+    "@babel/preset-typescript": "^7.24.1",
+    "@pmmmwh/react-refresh-webpack-plugin": "github:pmmmwh/react-refresh-webpack-plugin",
+    "@types/node": "^20.12.11",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@types/webpack": "^5.28.5",
+    "autoprefixer": "^10.4.19",
+    "babel-loader": "^9.1.3",
+    "cross-env": "^7.0.3",
+    "css-loader": "^7.1.1",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.0",
+    "postcss": "^8.4.38",
+    "postcss-assets": "^6.0.0",
+    "postcss-cli": "^11.0.0",
+    "postcss-custom-media": "^10.0.6",
+    "postcss-import": "^16.1.0",
+    "postcss-loader": "^8.1.1",
+    "postcss-media-minmax": "^5.0.0",
+    "postcss-mixins": "^10.0.1",
+    "postcss-nested": "^6.0.1",
+    "postcss-pxtorem": "^6.1.0",
+    "prettier": "3.2.5",
+    "prettier-plugin-css-order": "^2.1.2",
+    "react-refresh": "^0.14.2",
+    "style-loader": "^4.0.0",
+    "stylelint": "^16.5.0",
+    "stylelint-config-standard": "^36.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "typescript-plugin-css-modules": "^5.1.0",
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

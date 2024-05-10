@@ -1,0 +1,32 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "function-no-unknown": [true, { "ignoreFunctions": "resolve" }],
+    "at-rule-no-unknown": [
+      true,
+      { "ignoreAtRules": ["/define-mixin/", "/custom-media/"] }
+    ],
+    "no-unknown-animations": true,
+    "no-unknown-custom-media": true,
+    "declaration-property-unit-allowed-list": {
+      "line-height": [],
+      "letter-spacing": "px",
+      "/^font/": ["px", "rem"],
+      "/^animation/": "ms",
+      "/^margin/": ["px", "%"],
+      "/^padding/": ["px", "%"]
+    },
+    "property-disallowed-list": [
+      "/-(top|left|right|bottom)?$/",
+      "/^(top|left|right|bottom)$/",
+      "/^(max-|min-)?width$/",
+      "/^(max-|min-)?height$/"
+    ],
+    "selector-class-pattern": [
+      "^([a-z][a-z0-9]*)(_[a-z0-9]+)*$",
+      {
+        "message": "Expected class name to be snake_case"
+      }
+    ]
+  }
+}

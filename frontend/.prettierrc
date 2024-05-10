@@ -1,0 +1,11 @@
+{
+  "printWidth": 80,
+  "useTabs": false,
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true,
+  "endOfLine": "lf",
+  "cssDeclarationSorterKeepOverrides": false,
+  "cssDeclarationSorterOrder": "concentric-css",
+  "plugins": ["prettier-plugin-css-order"]
+}

@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "target": "ES5",
+    "jsx": "react-jsx",
+    "sourceMap": true,
+    // Type Checking
+    "noImplicitAny": true,
+    "noImplicitThis": false,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noPropertyAccessFromIndexSignature": false,
+    // Lint
+    "noImplicitReturns": true,
+    // Modules
+    "moduleResolution": "Node",
+    "module": "ESNext",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@public/*": ["./public/*"]
+    },
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "include": ["./src", "./public", "./webpack.config.ts", "./config"]
+}
