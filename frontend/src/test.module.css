@@ -1,0 +1,9 @@
+.wrapper {
+  background-color: antiquewhite;
+  padding-block: 20px;
+  padding-inline: 20px;
+}
+
+.test {
+  font-style: italic;
+}
