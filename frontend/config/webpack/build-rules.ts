@@ -1,8 +1,20 @@
 import { RuleSetRule } from 'webpack'
 
 import { WebpackBuildOptions } from './types'
-import { babelLoader, fontsLoader, cssLoader, assetLoader } from './loaders'
+import {
+  babelLoader,
+  fontsLoader,
+  cssLoader,
+  assetLoader,
+  svgLoader,
+} from './loaders'
 
 export const buildRules = ({ isDev }: WebpackBuildOptions): RuleSetRule[] => {
-  return [cssLoader(isDev), assetLoader(isDev), fontsLoader(), babelLoader()]
+  return [
+    cssLoader(isDev),
+    assetLoader(isDev),
+    svgLoader(),
+    fontsLoader(),
+    babelLoader(),
+  ]
 }

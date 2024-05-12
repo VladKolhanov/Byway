@@ -47,6 +47,15 @@
   block-size: 100px;
 }
 
+.svg_wrapper {
+  color: bisque;
+}
+
+.svg_test {
+  inline-size: 50px;
+  block-size: 50px;
+}
+
 .svg {
   background-image: resolve('telescope.svg');
   background-position: center center;
