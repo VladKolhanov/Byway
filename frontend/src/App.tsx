@@ -1,17 +1,16 @@
 import './global.css'
 import {
-  wrapper,
+  image,
   input,
   label,
-  image,
   svg,
   svg_test,
   svg_wrapper,
+  wrapper,
 } from '@/app.module.css'
 import Test from '@/Test'
 import someImg from '@public/assets/rectangle.jpg'
 import SomeSvg from '@public/assets/telescope.svg'
-
 //TODO: svg loader
 //TODO: minimize assets
 //TODO: eslint
