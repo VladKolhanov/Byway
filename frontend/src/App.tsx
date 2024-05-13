@@ -13,8 +13,6 @@ import someImg from '@public/assets/rectangle.jpg'
 import SomeSvg from '@public/assets/telescope.svg'
 
 export const App = () => {
-  if (true) {
-  }
   return (
     <div className={wrapper}>
       <form action="/" method="get">
