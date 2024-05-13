@@ -2,6 +2,7 @@ import webpack from 'webpack'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin'
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 
 import { WebpackBuildOptions } from './types'
 
@@ -22,6 +23,7 @@ export const buildPlugins = ({
   }
 
   if (isDev) {
+    commonPlugins.push(new ForkTsCheckerWebpackPlugin())
   }
 
   if (isProd) {
