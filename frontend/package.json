@@ -9,10 +9,11 @@
     "build:prod": "cross-env NODE_ENV=production webpack",
     "prettier": "prettier . --write",
     "stylelint": "stylelint src/**/*.css",
-    "stylelint:fix:": "stylelint src/**/*.css --fix",
+    "stylelint:fix": "stylelint src/**/*.css --fix",
     "eslint": "eslint --ext .ts,.tsx src/",
     "eslint:fix": "eslint --ext .ts,.tsx src/ --fix",
-    "clean": "rd /s /q dist"
+    "clean": "rd /s /q dist",
+    "prepare": "cd .. && husky frontend/.husky"
   },
   "repository": {
     "type": "git",
@@ -49,6 +50,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.1",
     "html-webpack-plugin": "^5.6.0",
+    "husky": "^9.0.11",
     "mini-css-extract-plugin": "^2.9.0",
     "postcss": "^8.4.38",
     "postcss-assets": "^6.0.0",
