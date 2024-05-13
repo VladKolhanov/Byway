@@ -11,9 +11,6 @@ import {
 import Test from '@/Test'
 import someImg from '@public/assets/rectangle.jpg'
 import SomeSvg from '@public/assets/telescope.svg'
-//TODO: svg loader
-//TODO: minimize assets
-//TODO: eslint
 
 export const App = () => {
   return (

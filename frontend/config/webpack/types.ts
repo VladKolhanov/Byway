@@ -10,5 +10,6 @@ export interface WebpackBuildOptions {
   isDev: boolean
   isProd: boolean
   isServe: boolean
+  isAnalyzer: boolean
   paths: WebpackPaths
 }

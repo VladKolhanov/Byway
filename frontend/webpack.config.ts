@@ -1,8 +1,4 @@
-//TODO: Terser-webpack plugin
-//TODO: Fork ts webpack plugin
-//TODO: Analyser
 //TODO: move performance in another function
-//TODO: install husky
 
 import webpack from 'webpack'
 import path from 'path'
@@ -24,12 +20,14 @@ export const paths: WebpackPaths = {
 
 const mode = process.env.NODE_ENV || 'development'
 const isServe = !!process.env.SERVE
+const isAnalyzer = !!process.env.ANALYZER || false
 
 const isDev = mode === 'development'
 const isProd = mode === 'production'
 const target = isDev ? 'web' : 'browserslist'
 
 const buildOptions: WebpackBuildOptions = {
+  isAnalyzer,
   isProd,
   isServe,
   isDev,
