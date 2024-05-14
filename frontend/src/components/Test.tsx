@@ -1,14 +1,15 @@
 import MySvg from '@public/assets/telescope.svg'
 import myImg from '@public/assets/rectangle.jpg'
-import { wrapper } from '@/components/test.module.css'
+import s from '@/components/Test.module.css'
 
-console.log(wrapper)
+console.log(s)
+
 const Test = () => {
   return (
     <>
       <img src={myImg} alt="" />
       <MySvg />
-      <div className={wrapper}>Hello from Test</div>
+      <div className={s.wrapper}>Hello from Test</div>
     </>
   )
 }
