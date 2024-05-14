@@ -6,6 +6,7 @@ export const buildDevServer = (): DevServerConfiguration => ({
   hot: true,
   open: true,
   client: {
-    logging: 'none',
+    logging: 'error',
   },
+  static: './dist',
 })
