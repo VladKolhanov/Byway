@@ -1,3 +1,5 @@
+export type WebpackMode = 'development' | 'production'
+
 export interface WebpackPaths {
   entry: string
   dist: string

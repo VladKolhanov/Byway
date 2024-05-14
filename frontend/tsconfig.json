@@ -12,6 +12,7 @@
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
     "noPropertyAccessFromIndexSignature": false,
+    "skipLibCheck": true,
     // Lint
     "noImplicitReturns": true,
     // Modules
