@@ -28,13 +28,20 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  globals: {
+    process: 'readonly',
+    __dirname: 'readonly',
+  },
   plugins: ['@typescript-eslint', 'react', 'jest'],
   rules: {
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     'jest/no-disabled-tests': 'warn',
     'jest/no-focused-tests': 'error',
     'jest/no-identical-title': 'error',
     'jest/prefer-to-have-length': 'warn',
     'jest/valid-expect': 'error',
     'react/react-in-jsx-scope': 'off',
+    'no-undef': ['error'],
   },
 }

@@ -1,19 +1,22 @@
 import { RuleSetRule } from 'webpack'
 import path from 'path'
 import type { StorybookConfig } from '@storybook/react-webpack5'
-import { svgLoader } from '../config/webpack/loaders'
+import { svgLoader } from 'config/webpack/loaders'
 
 const isRuleSetRule = (rule: any): rule is RuleSetRule => {
   return rule && typeof rule === 'object' && 'test' in rule
 }
 
 const paths = {
-  src: path.resolve(__dirname, '..', 'src'),
-  public: path.resolve(__dirname, '..', 'public'),
+  src: path.resolve(__dirname, '..', '..', 'src'),
+  public: path.resolve(__dirname, '..', '..', 'public'),
 }
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: [
+    '../../src/**/*.mdx',
+    '../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+  ],
   addons: [
     '@storybook/addon-webpack5-compiler-swc',
     '@storybook/addon-onboarding',
