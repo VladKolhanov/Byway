@@ -1,16 +1,14 @@
+import s from '@/components/Test.module.css'
 import MySvg from '@public/assets/telescope.svg'
 import myImg from '@public/assets/rectangle.jpg'
-import s from '@/components/Test.module.css'
-
-console.log(s)
 
 const Test = () => {
   return (
-    <>
-      <img src={myImg} alt="" />
+    <div>
       <MySvg />
-      <div className={s.wrapper}>Hello from Test</div>
-    </>
+      <img src={myImg} alt="ds" />
+      <button className={s.button}>Click me</button>
+    </div>
   )
 }
 

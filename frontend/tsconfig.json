@@ -3,6 +3,8 @@
     "outDir": "./build",
     "target": "ES5",
     "jsx": "react-jsx",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
     "sourceMap": true,
     // Type Checking
     "noImplicitAny": true,
@@ -12,7 +14,7 @@
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
     "noPropertyAccessFromIndexSignature": false,
-    "skipLibCheck": true,
+    "resolveJsonModule": true,
     // Lint
     "noImplicitReturns": true,
     // Modules

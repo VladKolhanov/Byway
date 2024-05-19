@@ -1,4 +1,4 @@
-/roadmap.txt
 .idea
 node_modules
 dist
+*storybook.log

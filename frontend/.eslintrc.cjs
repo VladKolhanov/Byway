@@ -10,6 +10,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:jest/recommended',
     'prettier',
+    'plugin:storybook/recommended',
   ],
   overrides: [
     {
