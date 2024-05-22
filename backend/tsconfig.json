@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "target": "ES2020",
+    // Type Checking
+    "noImplicitAny": true,
+    "noImplicitThis": false,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "resolveJsonModule": true,
+    // Lint
+    "noImplicitReturns": true,
+    // Modules
+    "moduleResolution": "Node",
+    "module": "ESNext",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@routes/*": ["./routes/*"],
+      "@public/*": ["./public/*"],
+      "@views/*": ["./views/*"],
+    },
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "include": ["./"],
+  "exclude": ["./node_modules"]
+}
