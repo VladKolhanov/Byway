@@ -26,6 +26,10 @@
       "@routes/*": ["./routes/*"],
       "@public/*": ["./public/*"],
       "@views/*": ["./views/*"],
+      "@middleware/*": ["./middleware/*"],
+      "@logs/*": ["./logs/*"],
+      "@utils/*": ["./utils/*"],
+      "@config/*": ["./config/*"],
     },
   },
   "ts-node": {
