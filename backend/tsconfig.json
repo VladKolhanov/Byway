@@ -29,6 +29,7 @@
       "@middleware/*": ["./middleware/*"],
       "@logs/*": ["./logs/*"],
       "@utils/*": ["./utils/*"],
+      "@config/*": ["./config/*"],
     },
   },
   "ts-node": {

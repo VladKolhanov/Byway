@@ -2,16 +2,23 @@ import 'tsconfig-paths/register'
 import 'dotenv/config'
 import express from 'express'
 import path from 'path'
+import cookieParser from 'cookie-parser'
+import cors from 'cors'
 import router from '@routes/root'
 import { logger } from '@middleware/logger'
 import { errorHandler } from '@middleware/errorHandler'
+import { corsOptions } from '@config/corsOptions'
 
 const PORT = process.env.PORT || 3300
 const app = express()
 
 app.use(logger)
 
+app.use(cors(corsOptions))
+
 app.use(express.json())
+
+app.use(cookieParser())
 
 app.use('/', express.static(path.join(__dirname, 'public')))
 

@@ -1,12 +1,7 @@
 import { logEvents } from '@utils/logEvents'
-import { NextFunction, Request, Response } from 'express'
+import { Request, Response } from 'express'
 
-export const errorHandler = async (
-  err: Error,
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const errorHandler = async (err: Error, req: Request, res: Response) => {
   await logEvents(
     `${err.name}: ${err.message}\t${req.method}\t${req.url}\t${req.headers.origin}`,
     'errLog.log',
@@ -18,6 +13,4 @@ export const errorHandler = async (
 
   res.status(status)
   res.json({ message: err.message })
-
-  next()
 }
