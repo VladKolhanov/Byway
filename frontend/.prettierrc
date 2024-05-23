@@ -4,7 +4,7 @@
   "tabWidth": 2,
   "semi": false,
   "singleQuote": true,
-  "endOfLine": "lf",
+  "endOfLine": "crlf",
   "cssDeclarationSorterKeepOverrides": false,
   "cssDeclarationSorterOrder": "concentric-css",
   "plugins": ["prettier-plugin-css-order"]

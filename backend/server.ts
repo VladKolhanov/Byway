@@ -3,9 +3,14 @@ import 'dotenv/config'
 import express from 'express'
 import path from 'path'
 import router from '@routes/root'
+import { logger } from '@middleware/logger'
 
 const PORT = process.env.PORT || 3300
 const app = express()
+
+app.use(logger)
+
+app.use(express.json())
 
 app.use('/', express.static(path.join(__dirname, 'public')))
 
