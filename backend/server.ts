@@ -4,6 +4,7 @@ import express from 'express'
 import path from 'path'
 import router from '@routes/root'
 import { logger } from '@middleware/logger'
+import { errorHandler } from '@middleware/errorHandler'
 
 const PORT = process.env.PORT || 3300
 const app = express()
@@ -27,6 +28,8 @@ app.all('*', (req, res) => {
     res.type('txt').send('404 Not Found')
   }
 })
+
+app.use(errorHandler)
 
 app.listen(PORT, () => {
   console.log(`server was started on port ${PORT}`)
