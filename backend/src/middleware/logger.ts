@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import { logEvents } from '@utils/logEvents'
+import { logEvents } from '@/utils/logEvents'
 
 export const logger = async (req: Request, _: Response, next: NextFunction) => {
   await logEvents(

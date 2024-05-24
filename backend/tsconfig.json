@@ -23,13 +23,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@routes/*": ["./routes/*"],
-      "@public/*": ["./public/*"],
-      "@views/*": ["./views/*"],
-      "@middleware/*": ["./middleware/*"],
-      "@logs/*": ["./logs/*"],
-      "@utils/*": ["./utils/*"],
-      "@config/*": ["./config/*"],
+      "@/*": ["./src/*"]
     },
   },
   "ts-node": {

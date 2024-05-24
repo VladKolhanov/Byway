@@ -1,5 +1,5 @@
 import { CorsOptions } from 'cors'
-import { allowedOrigins } from '@config/allowedOrigins'
+import { allowedOrigins } from '@/config/allowedOrigins'
 
 export const corsOptions: CorsOptions = {
   origin: (origin, callback) => {

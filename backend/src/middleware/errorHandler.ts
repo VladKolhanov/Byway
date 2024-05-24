@@ -1,4 +1,4 @@
-import { logEvents } from '@utils/logEvents'
+import { logEvents } from '@/utils/logEvents'
 import { Request, Response } from 'express'
 
 export const errorHandler = async (err: Error, req: Request, res: Response) => {
