@@ -24,13 +24,13 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]
-    },
+    }
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "include": ["./"],
+  "include": ["./", ".eslintrc.cjs"],
   "exclude": ["./node_modules"]
 }

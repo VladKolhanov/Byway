@@ -1,43 +1,37 @@
-import 'tsconfig-paths/register'
+import cookieParser from 'cookie-parser'
+import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
 import path from 'path'
-import cookieParser from 'cookie-parser'
-import cors from 'cors'
-import router from '@/routes/root'
-import { logger } from '@/middleware/logger'
-import { errorHandler } from '@/middleware/errorHandler'
+import 'tsconfig-paths/register'
+
 import { corsOptions } from '@/config/corsOptions'
+import { runDB } from '@/config/runDB'
+import { errorHandler } from '@/middleware/errorHandler'
+import { logger } from '@/middleware/logger'
+import router from '@/routes'
 
 const PORT = process.env.PORT || 3300
 const app = express()
 
 app.use(logger)
-
 app.use(cors(corsOptions))
-
 app.use(express.json())
-
 app.use(cookieParser())
-
-app.use('/', express.static(path.join(__dirname, 'public')))
-
-app.use('/', router)
-
-app.all('*', (req, res) => {
-  res.status(404)
-
-  if (req.accepts('html')) {
-    res.sendFile(path.join(__dirname, 'views', '404.html'))
-  } else if (req.accepts('json')) {
-    res.json({ message: '404 Not Found' })
-  } else {
-    res.type('txt').send('404 Not Found')
-  }
-})
-
+runDB()
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(errorHandler)
 
-app.listen(PORT, () => {
-  console.log(`server was started on port ${PORT}`)
+const startServer = async () => {
+  await runDB()
+
+  app.use(router)
+
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+  })
+}
+
+startServer().catch((err) => {
+  console.error(`Failed to start server: ${err.message}`)
 })
