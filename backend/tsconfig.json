@@ -31,6 +31,6 @@
       "module": "CommonJS"
     }
   },
-  "include": ["./", ".eslintrc.cjs"],
+  "include": [".", ".eslintrc.cjs"],
   "exclude": ["./node_modules"]
 }
