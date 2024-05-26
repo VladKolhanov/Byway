@@ -23,20 +23,14 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@routes/*": ["./routes/*"],
-      "@public/*": ["./public/*"],
-      "@views/*": ["./views/*"],
-      "@middleware/*": ["./middleware/*"],
-      "@logs/*": ["./logs/*"],
-      "@utils/*": ["./utils/*"],
-      "@config/*": ["./config/*"],
-    },
+      "@/*": ["./src/*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "include": ["./"],
+  "include": [".", ".eslintrc.cjs"],
   "exclude": ["./node_modules"]
 }
