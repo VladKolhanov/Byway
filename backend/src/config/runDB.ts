@@ -18,7 +18,10 @@ export const runDB = async () => {
     })
 
     mongoose.connection.on('error', async (err) => {
-      await logEvents(err, 'mongoErr.log')
+      await logEvents(
+        `${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`,
+        'mongoErr.log',
+      )
       console.error('Connection error:', err.message)
     })
 
@@ -26,7 +29,7 @@ export const runDB = async () => {
       console.log('Disconnected from MongoDB')
     })
   } catch (err) {
-    await logEvents(err, 'mongoErr.log')
+    await logEvents(`${err.name}: ${err.message}`, 'mongoErr.log')
     console.error(err.message)
     process.exit(1)
   }

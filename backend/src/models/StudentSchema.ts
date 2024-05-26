@@ -46,6 +46,11 @@ const StudentSchema = new Schema({
     type: String,
     default: '',
   },
+  roles: {
+    type: [String],
+    enum: ['Student', 'Instructor', 'Admin'],
+    default: ['Student'],
+  },
   socialNetworks: {
     type: Map,
     of: String,
