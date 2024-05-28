@@ -1,11 +1,10 @@
 import bcrypt from 'bcrypt'
 
-import StudentSchema from '@/models/StudentSchema'
 import { RegistrationInputData } from '@/types/inputs'
-import { ErrorConstructor } from '@/utils/ErrorConstructor'
-import { ErrorMessages } from '@/config/errorMessages'
-import { CreateStudentDTO } from '@/dtos/createStudentDTO'
-import { isTruthy } from '@/utils/isTruthy'
+import { StudentSchema } from '@/models'
+import { ErrorConstructor, isTruthy } from '@/utils'
+import { ErrorMessages } from '@/config'
+import { CreateStudentDTO } from '@/dtos'
 
 const getListStudents = async () => {
   const students = await StudentSchema.find().select('-password').lean().exec()

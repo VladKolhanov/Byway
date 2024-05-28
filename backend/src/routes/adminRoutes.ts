@@ -1,6 +1,6 @@
 import express from 'express'
 
-import studentsController from '@/controllers/studentsController'
+import { studentsController } from '@/controllers'
 
 const router = express.Router()
 

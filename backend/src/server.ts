@@ -5,10 +5,8 @@ import express from 'express'
 import path from 'path'
 import 'tsconfig-paths/register'
 
-import { corsOptions } from '@/config/corsOptions'
-import { errorHandler } from '@/middleware/errorHandler'
-import { logger } from '@/middleware/logger'
-import { startServer } from '@/config/startServer'
+import { corsOptions, startServer } from '@/config'
+import { errorHandler, logger } from '@/middleware'
 import router from '@/routes'
 
 const app = express()

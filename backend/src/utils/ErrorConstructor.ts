@@ -1,5 +1,4 @@
-import { ErrorMessages } from '@/config/errorMessages'
-import { StatusCodes } from '@/config/statusCodes'
+import { ErrorMessages, StatusCodes } from '@/config'
 
 interface IErrorConstructor {
   status: number

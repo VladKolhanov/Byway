@@ -1,6 +1,6 @@
 import { Express } from 'express'
 
-import { runDB } from '@/config/runDB'
+import { runDB } from '@/config'
 
 const PORT = process.env.PORT || 3300
 

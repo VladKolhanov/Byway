@@ -1,7 +1,7 @@
 import path from 'path'
 import { Request, Response } from 'express'
 
-import { StatusCodes } from '@/config/statusCodes'
+import { StatusCodes } from '@/config'
 
 const ERROR_FILE_PATH = path.join(__dirname, '..', 'views', '404.html')
 

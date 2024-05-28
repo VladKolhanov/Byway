@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express'
 
-import studentsService from '@/services/studentsService'
-import { StatusCodes } from '@/config/statusCodes'
 import { RequestRegistration } from '@/types/requests'
+import { studentsService } from '@/services'
+import { StatusCodes } from '@/config'
 
 //TODO: create students service
 //TODO: add nodemailer

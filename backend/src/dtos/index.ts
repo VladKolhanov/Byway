@@ -1,0 +1,1 @@
+export { CreateStudentDTO } from './createStudentDTO'
