@@ -1,17 +1,20 @@
 import { model, Schema } from 'mongoose'
 
 const StudentSchema = new Schema({
+  firstName: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    trim: true,
+    required: true,
+  },
   fullName: {
-    firstName: {
-      type: String,
-      trim: true,
-      required: true,
-    },
-    lastName: {
-      type: String,
-      trim: true,
-      required: true,
-    },
+    type: String,
+    trim: true,
+    required: true,
   },
   userName: {
     type: String,

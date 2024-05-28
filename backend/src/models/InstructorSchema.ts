@@ -28,6 +28,10 @@ const InstructorSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  dateOfInstructorUpdate: {
+    type: Date,
+    default: Date.now,
+  },
 })
 
 export default model('Instructor', InstructorSchema)

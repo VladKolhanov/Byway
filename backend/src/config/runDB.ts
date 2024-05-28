@@ -1,17 +1,19 @@
-import { clientOptions, messages, uri } from '@/config/dbSettings'
-import { logEvents } from '@/utils/logEvents'
 import mongoose from 'mongoose'
+
+import { clientOptions, uri } from '@/config/dbSettings'
+import { logEvents } from '@/utils/logEvents'
+import { ErrorMessages } from '@/config/errorMessages'
+import { ErrorConstructor } from '@/utils/ErrorConstructor'
 
 export const runDB = async () => {
   try {
-    if (!uri) throw new Error(messages.errorConnectURI)
+    if (!uri) throw ErrorConstructor.badRequest(ErrorMessages.WRONG_DB_URI)
 
     await mongoose.connect(uri, clientOptions)
 
     mongoose.connection.on('connected', async () => {
       try {
         await mongoose.connection.db.admin().command({ ping: 1 })
-        console.log(messages.successfullyConnected)
       } catch (pingError) {
         console.error('Ping command failed:', pingError.message)
       }
@@ -19,7 +21,7 @@ export const runDB = async () => {
 
     mongoose.connection.on('error', async (err) => {
       await logEvents(
-        `${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`,
+        `${err.name}: ${err.code}\t${err.hostname}`,
         'mongoErr.log',
       )
       console.error('Connection error:', err.message)

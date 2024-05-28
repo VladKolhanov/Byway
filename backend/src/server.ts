@@ -6,32 +6,21 @@ import path from 'path'
 import 'tsconfig-paths/register'
 
 import { corsOptions } from '@/config/corsOptions'
-import { runDB } from '@/config/runDB'
 import { errorHandler } from '@/middleware/errorHandler'
 import { logger } from '@/middleware/logger'
+import { startServer } from '@/config/startServer'
 import router from '@/routes'
 
-const PORT = process.env.PORT || 3300
 const app = express()
 
 app.use(logger)
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(cookieParser())
-runDB()
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(router)
 app.use(errorHandler)
 
-const startServer = async () => {
-  await runDB()
-
-  app.use(router)
-
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
-  })
-}
-
-startServer().catch((err) => {
-  console.error(`Failed to start server: ${err.message}`)
-})
+startServer(app).catch((err) =>
+  console.error(`Failed to start server: ${err.message}`),
+)
