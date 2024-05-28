@@ -1,5 +1,7 @@
-import { logEvents } from '@/utils/logEvents'
 import { NextFunction, Request, Response } from 'express'
+
+import { logEvents, ErrorConstructor } from '@/utils'
+import { ErrorMessages, StatusCodes } from '@/config'
 
 export const errorHandler = async (
   err: Error,
@@ -12,12 +14,11 @@ export const errorHandler = async (
     'errLog.log',
   )
 
-  console.log(err.stack)
+  if (err instanceof ErrorConstructor) {
+    return res.status(err.status).json({ message: err.message })
+  }
 
-  const status = res.statusCode || 500
-
-  res.status(status)
-  res.json({ message: err.message })
-
-  next()
+  return res
+    .status(StatusCodes.UNKNOWN)
+    .json({ message: ErrorMessages.UNKNOWN })
 }
