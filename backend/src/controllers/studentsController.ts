@@ -1,6 +1,8 @@
 import { NextFunction, Request, Response } from 'express'
 
-import { RequestRegistration } from '@/types/requests'
+import { RequestWithBody } from '@/types/requests'
+import { IStudent } from '@/types/models'
+import { RegistrationInputData } from '@/types/inputs'
 import { studentsService } from '@/services'
 import { StatusCodes } from '@/config'
 
@@ -9,12 +11,14 @@ import { StatusCodes } from '@/config'
 //TODO: add limiter
 //TODO: add validation inputs
 
-// @desc get all students
-// @route GET /admin/students
-// @access Private
+/**
+ *  @desc get list of all students
+ *  @route GET /admin/students
+ *  @access Private
+ */
 const getAllStudents = async (
   req: Request,
-  res: Response,
+  res: Response<IStudent[]>,
   next: NextFunction,
 ) => {
   try {
@@ -26,16 +30,18 @@ const getAllStudents = async (
   }
 }
 
-// @desc create new student
-// @route POST /admin/students
-// @access Private
+/**
+ * @desc create new student
+ * @route POST /admin/students
+ * @access Private
+ */
 const createStudent = async (
-  req: RequestRegistration,
-  res: Response,
+  req: RequestWithBody<RegistrationInputData>,
+  res: Response<IStudent>,
   next: NextFunction,
 ) => {
   try {
-    const { createdStudent } = await studentsService.registration(req.body)
+    const createdStudent = await studentsService.registration(req.body)
 
     res.status(StatusCodes.CREATED).json(createdStudent)
   } catch (err) {
@@ -43,9 +49,11 @@ const createStudent = async (
   }
 }
 
-// @desc update a student
-// @route PATCH /admin/student
-// @access Private
+/**
+ *  @desc update a student
+ *  @route PATCH /admin/student
+ *  @access Private
+ */
 const updateStudent = async (
   req: Request,
   res: Response,
@@ -58,9 +66,11 @@ const updateStudent = async (
   }
 }
 
-// @desc delete a student
-// @route DELETE /admin/student
-// @access Private
+/**
+ *  @desc delete a student
+ *  @route DELETE /admin/student
+ *  @access Private
+ */
 const deleteStudent = async (
   req: Request,
   res: Response,
