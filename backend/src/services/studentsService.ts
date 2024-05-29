@@ -1,18 +1,21 @@
 import bcrypt from 'bcrypt'
 
 import { RegistrationInputData } from '@/types/inputs'
+import { IStudent } from '@/types/models'
 import { StudentSchema } from '@/models'
 import { ErrorConstructor, isTruthy } from '@/utils'
 import { ErrorMessages } from '@/config'
 import { CreateStudentDTO } from '@/dtos'
 
-const getListStudents = async () => {
-  const students = await StudentSchema.find().select('-password').lean().exec()
+const getListStudents = async (): Promise<IStudent[]> => {
+  const students = await StudentSchema.find().select('-password').exec()
 
-  return students
+  return students.map((student) => student.toObject())
 }
 
-const registration = async (inputData: RegistrationInputData) => {
+const registration = async (
+  inputData: RegistrationInputData,
+): Promise<IStudent> => {
   const { userName, email, password, repeatedPassword } = inputData
 
   const isDuplicateUserName = await StudentSchema.exists({ userName })
@@ -34,9 +37,7 @@ const registration = async (inputData: RegistrationInputData) => {
   const newStudent = new CreateStudentDTO(inputData, hashPassword)
 
   try {
-    const createdStudent = await StudentSchema.create(newStudent)
-
-    return { createdStudent }
+    return await StudentSchema.create(newStudent)
   } catch {
     throw ErrorConstructor.badRequest(ErrorMessages.WRONG_CREATED_STUDENT)
   }

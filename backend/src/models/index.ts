@@ -1,2 +1,1 @@
-export { StudentSchema } from './StudentSchema'
-export { InstructorSchema } from './InstructorSchema'
+export { default as StudentSchema } from './StudentSchema'

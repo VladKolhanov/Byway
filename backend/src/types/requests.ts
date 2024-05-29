@@ -1,8 +1,5 @@
 import { Request } from 'express'
-import { RegistrationInputData } from './inputs'
 
-export type RequestRegistration = Request<
-  unknown,
-  unknown,
-  RegistrationInputData
->
+export type RequestWithBody<T> = Request<unknown, unknown, T>
+export type RequestWithQuery<T> = Request<unknown, unknown, unknown, T>
+export type RequestWithParams<T> = Request<T>
