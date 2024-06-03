@@ -4,7 +4,7 @@ import { RequestWithBody } from '@/types/requests'
 import { IStudent } from '@/types/models'
 import { RegistrationInputData } from '@/types/inputs'
 import { studentsService } from '@/services'
-import { StatusCodes } from '@/config'
+import { StatusCodes } from '@/utils/constants'
 
 //TODO: create students service
 //TODO: add nodemailer

@@ -1,8 +1,5 @@
 export { allowedOrigins } from './allowedOrigins'
 export { corsOptions } from './corsOptions'
-export { StatusCodes } from './statusCodes'
 export { startServer } from './startServer'
 export { uri, clientOptions } from './dbSettings'
-export { ErrorMessages } from './errorMessages'
 export { runDB } from './runDB'
-export { Roles } from './roles'

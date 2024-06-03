@@ -1,3 +1,3 @@
 export { isTruthy } from './isTruthy'
-export { ErrorConstructor } from './ErrorConstructor'
 export { logEvents } from './logEvents'
+export { ErrorConstructor } from './ErrorConstructor'
