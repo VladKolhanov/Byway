@@ -1,4 +1,10 @@
 import { createRoot } from 'react-dom/client'
-import { App } from '@/App'
 
-createRoot(document.getElementById('root')!).render(<App />)
+import { App } from '@/App'
+import { ThemeProvider } from '@/providers'
+
+createRoot(document.getElementById('root')!).render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>,
+)

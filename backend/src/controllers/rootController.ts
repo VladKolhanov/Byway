@@ -1,5 +1,5 @@
 import path from 'path'
-import { StatusCodes } from '@/config'
+import { StatusCodes } from '@/utils/constants'
 import { NextFunction, Request, Response } from 'express'
 
 const INDEX_FILE_PATH = path.join(__dirname, '..', 'views', 'index.html')

@@ -4,7 +4,7 @@ const config: Config = {
   bail: 3,
   clearMocks: true,
   globals: {},
-  moduleDirectories: ['node_modules'],
+  moduleDirectories: ['node_modules', 'src', 'config'],
   modulePaths: ['<rootDir>/src', '<rootDir>/public'],
   moduleFileExtensions: ['tsx', 'ts', 'json', 'js', 'jsx'],
   moduleNameMapper: {

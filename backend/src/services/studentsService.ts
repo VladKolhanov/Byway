@@ -3,8 +3,8 @@ import bcrypt from 'bcrypt'
 import { RegistrationInputData } from '@/types/inputs'
 import { IStudent } from '@/types/models'
 import { StudentSchema } from '@/models'
-import { ErrorConstructor, isTruthy } from '@/utils'
-import { ErrorMessages } from '@/config'
+import { ErrorMessages } from '@/utils/constants'
+import { ErrorConstructor, isTruthy } from "@/utils/helpers"
 import { CreateStudentDTO } from '@/dtos'
 
 const getListStudents = async (): Promise<IStudent[]> => {

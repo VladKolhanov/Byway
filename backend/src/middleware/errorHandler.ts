@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express'
 
-import { logEvents, ErrorConstructor } from '@/utils'
-import { ErrorMessages, StatusCodes } from '@/config'
+import { logEvents, ErrorConstructor } from '@/utils/helpers'
+import { StatusCodes, ErrorMessages } from '@/utils/constants'
 
 export const errorHandler = async (
   err: Error,

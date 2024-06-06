@@ -1,7 +1,7 @@
 import { model, Schema } from 'mongoose'
 
 import { IStudent } from '@/types/models'
-import { Roles } from '@/config'
+import { Roles } from '@/utils/constants'
 
 const StudentSchema = new Schema<IStudent>({
   firstName: {
