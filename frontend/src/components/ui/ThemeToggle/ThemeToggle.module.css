@@ -1,6 +1,6 @@
-@import 'https://unpkg.com/open-props/easings.min.css';
+@import url('https://unpkg.com/open-props/easings.min.css');
 
-@custom-media --motionOK (prefers-reduced-motion: no-preference);
+@custom-media --motion-ok (prefers-reduced-motion: no-preference);
 
 .theme_toggle {
   --size: 2rem;
@@ -13,12 +13,10 @@
   background: none;
   padding: 0;
   aspect-ratio: 1;
-
   inline-size: var(--size);
   block-size: var(--size);
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
-
   outline-offset: 5px;
 
   & > svg {
@@ -73,7 +71,7 @@
     }
   }
 
-  @media (--motionOK) {
+  @media (--motion-ok) {
     & > .sun {
       transition: transform 0.5s var(--ease-elastic-3);
     }

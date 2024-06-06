@@ -1,4 +1,4 @@
-@import './colors.css';
+@import url('./colors.css');
 
 @define-mixin light-theme {
   color-scheme: light;
