@@ -1,6 +1,5 @@
 import { WebpackBuildOptions } from './types'
 import { ResolveOptions } from 'webpack'
-import path from 'path'
 
 export const buildResolve = ({
   paths,
