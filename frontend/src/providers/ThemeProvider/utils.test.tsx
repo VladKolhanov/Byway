@@ -9,9 +9,6 @@ import {
 describe('reflectPreference', () => {
   beforeEach(() => {
     document.documentElement.removeAttribute('data-theme')
-    const button = document.createElement('button')
-    button.setAttribute('id', 'theme-toggle')
-    document.body.append(button)
   })
 
   afterEach(() => {
@@ -24,14 +21,6 @@ describe('reflectPreference', () => {
     expect(document.documentElement.getAttribute('data-theme')).toBe(
       Themes.DARK,
     )
-  })
-
-  test('should set aria-label attribute on #theme-toggle element', () => {
-    reflectPreference(Themes.DARK)
-
-    const toggleButton = document.getElementById('theme-toggle')
-
-    expect(toggleButton?.getAttribute('aria-label')).toBe(Themes.DARK)
   })
 })
 

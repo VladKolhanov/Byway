@@ -26,7 +26,10 @@ export const ThemeProvider = ({
     setTheme(newTheme)
   }, [theme])
 
-  const provideValue = useMemo(() => ({ theme, changeTheme }), [theme])
+  const provideValue = useMemo(
+    () => ({ theme, changeTheme }),
+    [theme, changeTheme],
+  )
 
   return (
     <ThemeContext.Provider value={provideValue}>

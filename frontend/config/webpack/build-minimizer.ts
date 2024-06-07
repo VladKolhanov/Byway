@@ -4,7 +4,7 @@ import webpack from 'webpack'
 
 import { WebpackBuildOptions } from './types'
 
-export const buildMimimizer = ({ isProd }: WebpackBuildOptions) => {
+export const buildMinimizer = ({ isProd }: WebpackBuildOptions) => {
   const minimizer: webpack.WebpackPluginInstance[] = []
 
   if (isProd) {
