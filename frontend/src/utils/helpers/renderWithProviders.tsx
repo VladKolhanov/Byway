@@ -6,7 +6,7 @@ import { getProvidersWrapper } from './getProvidersWrapper'
 type RenderOptionsWithoutWrapper = Omit<RenderOptions, 'wrapper'>
 
 interface RenderWithProviders extends RenderOptionsWithoutWrapper {
-  theme?: Themes
+  theme?: Themes | undefined
 }
 
 export const renderWithProviders = (

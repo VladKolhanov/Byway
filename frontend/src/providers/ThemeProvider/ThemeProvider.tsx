@@ -1,4 +1,4 @@
-import { createContext, useCallback, useMemo, useState } from 'react'
+import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
 
 import {
   THEME_STORAGE_KEY,
@@ -16,6 +16,13 @@ export const ThemeProvider = ({
   prefersTheme = undefined,
 }: ThemeProviderType) => {
   const [theme, setTheme] = useState(() => getPrefersTheme(prefersTheme))
+
+  /** This effect necessary for correct works toggle theme in Storybook */
+  useEffect(() => {
+    // if (prefersTheme) {
+    setTheme(getPrefersTheme(prefersTheme))
+    // }
+  }, [prefersTheme])
 
   const changeTheme = useCallback(() => {
     const newTheme = theme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT

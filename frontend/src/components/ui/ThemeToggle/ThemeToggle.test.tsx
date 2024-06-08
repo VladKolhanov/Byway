@@ -4,11 +4,12 @@ import { screen } from '@testing-library/react'
 import { renderWithProviders } from '@/utils/helpers/renderWithProviders'
 import { ThemeToggle } from './ThemeToggle'
 
+const changeThemeMock = jest.fn()
+
 const mockUseTheme = jest.fn(() => ({
   theme: Themes.LIGHT,
+  changeTheme: jest.fn(() => changeThemeMock()),
 }))
-
-const mockOnClick = jest.fn()
 
 jest.mock('@/utils/hooks', () => ({ useTheme: jest.fn(() => mockUseTheme()) }))
 
@@ -18,7 +19,7 @@ describe('ThemeToggle', () => {
   })
 
   test('Should renders the button with correct attributes', () => {
-    renderWithProviders(<ThemeToggle onClick={mockOnClick} />)
+    renderWithProviders(<ThemeToggle />)
 
     const button = screen.getByRole('button')
 
@@ -28,7 +29,7 @@ describe('ThemeToggle', () => {
   })
 
   test('Should handles button click', async () => {
-    renderWithProviders(<ThemeToggle onClick={mockOnClick} />)
+    renderWithProviders(<ThemeToggle />)
 
     const user = userEvent.setup()
 
@@ -36,6 +37,6 @@ describe('ThemeToggle', () => {
 
     await user.click(button)
 
-    expect(mockOnClick).toHaveBeenCalledTimes(1)
+    expect(changeThemeMock).toHaveBeenCalledTimes(1)
   })
 })

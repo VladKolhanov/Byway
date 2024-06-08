@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import { ThemeProvider } from '@/providers'
 import { Themes } from '../constants'
 
-export const getProvidersWrapper = (theme: Themes) => {
+export const getProvidersWrapper = (theme: Themes | undefined) => {
   const Wrapper = ({ children }: { children: ReactNode }) => (
     <ThemeProvider prefersTheme={theme}>{children}</ThemeProvider>
   )

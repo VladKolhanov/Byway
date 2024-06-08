@@ -10,7 +10,7 @@ import { buildDevServer } from './config/webpack/build-dev-server'
 import { buildPlugins } from './config/webpack/build-plugins'
 import { buildRules } from './config/webpack/build-rules'
 import { buildResolve } from './config/webpack/build-resolve'
-import { buildMinimizer } from "./config/webpack/build-minimizer"
+import { buildMinimizer } from './config/webpack/build-minimizer'
 
 export const paths: WebpackPaths = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),

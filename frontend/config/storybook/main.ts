@@ -1,10 +1,14 @@
 import { RuleSetRule } from 'webpack'
 import path from 'path'
-import type { StorybookConfig } from '@storybook/react-webpack5'
-import { svgLoader } from 'config/webpack/loaders'
 
-const isRuleSetRule = (rule: any): rule is RuleSetRule => {
-  return rule && typeof rule === 'object' && 'test' in rule
+import type { StorybookConfig } from '@storybook/react-webpack5'
+import { cssLoader, svgLoader } from 'config/webpack/loaders'
+
+const isFindRule = (rule: any, test: string): rule is RuleSetRule => {
+  const isRuleSetRule = rule && typeof rule === 'object' && 'test' in rule
+  const isRegExp = rule.test instanceof RegExp
+
+  return isRuleSetRule && isRegExp && rule.test.test(test)
 }
 
 const paths = {
@@ -19,11 +23,11 @@ const config: StorybookConfig = {
   ],
   addons: [
     '@storybook/addon-webpack5-compiler-swc',
-    '@storybook/addon-onboarding',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
+    '@storybook/addon-actions',
     '@storybook/addon-a11y',
   ],
   framework: {
@@ -42,15 +46,17 @@ const config: StorybookConfig = {
   webpackFinal: async (config) => {
     if (config.module?.rules) {
       config.module.rules = config.module.rules.map((rule) => {
-        const isSvgLoader =
-          isRuleSetRule(rule) &&
-          rule.test instanceof RegExp &&
-          rule.test.test('.svg')
+        const isSvgLoader = isFindRule(rule, '.svg')
+        const isCssLoader = isFindRule(rule, '.css')
 
-        return isSvgLoader ? { ...rule, exclude: /\.svg$/i } : rule
+        if (isSvgLoader) return { ...(rule as RuleSetRule), exclude: /\.svg$/i }
+        if (isCssLoader) return { ...(rule as RuleSetRule), exclude: /\.css$/i }
+
+        return rule
       })
 
       config.module.rules.push(svgLoader())
+      config.module.rules.push(...cssLoader())
     }
 
     if (config.resolve?.alias) {

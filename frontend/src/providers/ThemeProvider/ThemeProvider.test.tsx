@@ -37,6 +37,12 @@ describe('ThemeProvider', () => {
     expect(screen.getByTestId('theme')).toHaveTextContent(Themes.LIGHT)
   })
 
+  test('should provide default theme from getPrefersTheme if prefersTheme="undefined"', () => {
+    renderWithProviders(<TestComponent />, { theme: undefined })
+
+    expect(screen.getByTestId('theme')).toHaveTextContent(Themes.LIGHT)
+  })
+
   test('should change theme and update localStorage', async () => {
     renderWithProviders(<TestComponent />)
 
@@ -65,5 +71,11 @@ describe('ThemeProvider', () => {
       expect(reflectPreference).toHaveBeenCalledWith(Themes.DARK)
       expect(enableThemeTransitionMock).toHaveBeenCalledTimes(1)
     })
+  })
+
+  test('should set prefers theme if theme was provide in ThemeProvider', () => {
+    renderWithProviders(<TestComponent />, { theme: Themes.DARK })
+
+    expect(screen.getByTestId('theme')).toHaveTextContent('dark')
   })
 })

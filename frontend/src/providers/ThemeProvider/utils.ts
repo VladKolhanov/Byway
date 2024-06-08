@@ -6,12 +6,16 @@ export const reflectPreference = (theme: Themes) => {
   document.documentElement.setAttribute('data-theme', theme)
 }
 
+export const enableThemeTransition = () => {
+  document.documentElement.setAttribute('data-transition', 'enabled')
+}
+
 export const getPrefersTheme = (prefersTheme?: Themes): Themes => {
   const reflectAndReturnTheme = (theme: Themes): Themes => {
     reflectPreference(theme)
     return theme
   }
-
+  
   if (prefersTheme) {
     return reflectAndReturnTheme(prefersTheme)
   }
@@ -27,8 +31,4 @@ export const getPrefersTheme = (prefersTheme?: Themes): Themes => {
     : Themes.LIGHT
 
   return reflectAndReturnTheme(theme)
-}
-
-export const enableThemeTransition = () => {
-  document.documentElement.setAttribute('data-transition', 'enabled')
 }

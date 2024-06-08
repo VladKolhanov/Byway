@@ -6,7 +6,7 @@ type RenderHookOptionsWithoutWrapper<P> = Omit<RenderHookOptions<P>, 'wrapper'>
 
 interface RenderHookWithProviders<P>
   extends RenderHookOptionsWithoutWrapper<P> {
-  theme?: Themes
+  theme?: Themes | undefined
 }
 
 export const renderHookWithProviders = <P,>(
