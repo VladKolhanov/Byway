@@ -1,6 +1,10 @@
-import type { Configuration as DevServerConfiguration } from 'webpack-dev-server'
+import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 
-export const buildDevServer = (): DevServerConfiguration => ({
+import { WebpackBuildOptions } from './types';
+
+export const buildDevServer = ({
+  paths,
+}: WebpackBuildOptions): DevServerConfiguration => ({
   port: 2000,
   historyApiFallback: true,
   hot: true,
@@ -8,5 +12,8 @@ export const buildDevServer = (): DevServerConfiguration => ({
   client: {
     logging: 'error',
   },
-  static: './dist',
-})
+  compress: true,
+  static: {
+    directory: paths.dist,
+  },
+});

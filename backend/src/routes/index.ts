@@ -1,7 +1,8 @@
 import express from 'express'
 
+import { errorController, rootController } from '@/controllers'
+
 import adminRoutes from './adminRoutes'
-import { rootController, errorController } from '@/controllers'
 
 const router = express.Router()
 

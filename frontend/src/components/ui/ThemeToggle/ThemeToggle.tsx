@@ -1,18 +1,13 @@
-import { FC, MouseEvent } from 'react'
+import { useTheme } from '@/utils/hooks';
 
-import { useTheme } from '@/utils/hooks'
-import s from './ThemeToggle.module.css'
+import s from './ThemeToggle.module.css';
 
-interface ThemeToggle {
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void
-}
-
-export const ThemeToggle: FC<ThemeToggle> = ({ onClick }) => {
-  const { theme } = useTheme()
+export const ThemeToggle = () => {
+  const { theme, changeTheme } = useTheme();
 
   return (
     <button
-      onClick={onClick}
+      onClick={changeTheme}
       className={s.theme_toggle}
       id="theme-toggle"
       title="Toggles light & dark"
@@ -51,5 +46,5 @@ export const ThemeToggle: FC<ThemeToggle> = ({ onClick }) => {
         </mask>
       </svg>
     </button>
-  )
-}
+  );
+};

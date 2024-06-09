@@ -1,4 +1,4 @@
-import webpack from 'webpack'
+import webpack from 'webpack';
 
 export const babelLoader = (): webpack.RuleSetRule => ({
   test: /\.[jt]sx?$/,
@@ -9,4 +9,4 @@ export const babelLoader = (): webpack.RuleSetRule => ({
       cacheDirectory: true,
     },
   },
-})
+});

@@ -1,4 +1,4 @@
-import type { Config } from 'jest'
+import type { Config } from 'jest';
 
 const config: Config = {
   bail: 3,
@@ -20,6 +20,6 @@ const config: Config = {
   roots: ['<rootDir>/src'],
   setupFilesAfterEnv: ['<rootDir>/config/jest/jest.setup.ts'],
   testEnvironment: 'jsdom',
-}
+};
 
-export default config
+export default config;

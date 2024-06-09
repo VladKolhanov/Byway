@@ -1,4 +1,4 @@
-import { RuleSetRule } from 'webpack'
+import { RuleSetRule } from 'webpack';
 
 export const svgLoader = (): RuleSetRule => {
   return {
@@ -11,5 +11,5 @@ export const svgLoader = (): RuleSetRule => {
         },
       },
     ],
-  }
-}
+  };
+};

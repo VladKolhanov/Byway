@@ -1,13 +1,13 @@
-import { useContext } from 'react'
+import { useContext } from 'react';
 
-import { ThemeContext } from '@/providers'
+import { ThemeContext } from '@/providers';
 
 export const useTheme = () => {
-  const contextValue = useContext(ThemeContext)
+  const contextValue = useContext(ThemeContext);
 
   if (!contextValue) {
-    throw new Error('Provide theme Provider in your root component')
+    throw new Error('Provide theme Provider in your root component');
   }
 
-  return contextValue
-}
+  return contextValue;
+};

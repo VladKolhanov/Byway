@@ -6,23 +6,13 @@
   padding: 0;
 }
 
-body {
-  transition: var(--transition-theme);
-  background-color: var(--bg-page-primary);
-}
-
-p {
-  transition: var(--transition-theme);
-  background-color: var(--bg-page-secondary);
-}
-
 :root {
   @mixin light-theme;
 
   --transition-theme: none;
 
   &:is([data-transition='enabled']) {
-    --transition-theme: background-color 1.2s ease-in-out;
+    --transition-theme: background-color 0.8s ease-in-out;
   }
 }
 
