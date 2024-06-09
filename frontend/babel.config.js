@@ -1,9 +1,9 @@
-const plugins = []
+const plugins = [];
 
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development';
 
 if (isDev) {
-  plugins.push('react-refresh/babel')
+  plugins.push('react-refresh/babel');
 }
 
 export default {
@@ -13,4 +13,4 @@ export default {
     '@babel/preset-typescript',
   ],
   plugins,
-}
+};

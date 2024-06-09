@@ -1,42 +1,44 @@
-import userEvent from '@testing-library/user-event'
-import { Themes } from '@/utils/constants'
-import { screen } from '@testing-library/react'
-import { renderWithProviders } from '@/utils/helpers/renderWithProviders'
-import { ThemeToggle } from './ThemeToggle'
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-const changeThemeMock = jest.fn()
+import { Themes } from '@/utils/constants';
+import { renderWithProviders } from '@/utils/helpers/renderWithProviders';
+
+import { ThemeToggle } from './ThemeToggle';
+
+const changeThemeMock = jest.fn();
 
 const mockUseTheme = jest.fn(() => ({
   theme: Themes.LIGHT,
   changeTheme: jest.fn(() => changeThemeMock()),
-}))
+}));
 
-jest.mock('@/utils/hooks', () => ({ useTheme: jest.fn(() => mockUseTheme()) }))
+jest.mock('@/utils/hooks', () => ({ useTheme: jest.fn(() => mockUseTheme()) }));
 
 describe('ThemeToggle', () => {
   beforeEach(() => {
-    jest.clearAllMocks()
-  })
+    jest.clearAllMocks();
+  });
 
   test('Should renders the button with correct attributes', () => {
-    renderWithProviders(<ThemeToggle />)
+    renderWithProviders(<ThemeToggle />);
 
-    const button = screen.getByRole('button')
+    const button = screen.getByRole('button');
 
-    expect(button).toBeInTheDocument()
-    expect(button).toHaveAttribute('id', 'theme-toggle')
-    expect(button).toHaveAttribute('aria-label', Themes.LIGHT)
-  })
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveAttribute('id', 'theme-toggle');
+    expect(button).toHaveAttribute('aria-label', Themes.LIGHT);
+  });
 
   test('Should handles button click', async () => {
-    renderWithProviders(<ThemeToggle />)
+    renderWithProviders(<ThemeToggle />);
 
-    const user = userEvent.setup()
+    const user = userEvent.setup();
 
-    const button = screen.getByRole('button')
+    const button = screen.getByRole('button');
 
-    await user.click(button)
+    await user.click(button);
 
-    expect(changeThemeMock).toHaveBeenCalledTimes(1)
-  })
-})
+    expect(changeThemeMock).toHaveBeenCalledTimes(1);
+  });
+});

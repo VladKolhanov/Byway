@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 
 import { clientOptions, uri } from '@/config'
-import { logEvents, ErrorConstructor } from '@/utils/helpers'
 import { ErrorMessages } from '@/utils/constants'
+import { ErrorConstructor, logEvents } from '@/utils/helpers'
 
 export const runDB = async () => {
   try {

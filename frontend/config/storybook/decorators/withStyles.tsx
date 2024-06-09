@@ -1,5 +1,6 @@
-import { Decorator } from '@storybook/react'
-import '@/styles/global.css'
+import { Decorator } from '@storybook/react';
+
+import '@/styles/global.css';
 
 export const withStyles: Decorator = (Story) => (
   <div
@@ -7,4 +8,4 @@ export const withStyles: Decorator = (Story) => (
   >
     <Story />
   </div>
-)
+);

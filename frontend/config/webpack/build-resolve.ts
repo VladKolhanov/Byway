@@ -1,5 +1,6 @@
-import { WebpackBuildOptions } from './types'
-import { ResolveOptions } from 'webpack'
+import { ResolveOptions } from 'webpack';
+
+import { WebpackBuildOptions } from './types';
 
 export const buildResolve = ({
   paths,
@@ -12,5 +13,5 @@ export const buildResolve = ({
       '@': paths.src,
       '@public': paths.public,
     },
-  }
-}
+  };
+};

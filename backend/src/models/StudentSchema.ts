@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose'
+import { Schema, model } from 'mongoose'
 
 import { IStudent } from '@/types/models'
 import { Roles } from '@/utils/constants'

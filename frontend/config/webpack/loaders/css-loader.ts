@@ -1,5 +1,5 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import { RuleSetRule } from 'webpack'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { RuleSetRule } from 'webpack';
 
 export const cssLoader = (isDev: boolean = true): RuleSetRule[] => {
   return [
@@ -31,5 +31,5 @@ export const cssLoader = (isDev: boolean = true): RuleSetRule[] => {
         'postcss-loader',
       ],
     },
-  ]
-}
+  ];
+};

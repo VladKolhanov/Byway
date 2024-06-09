@@ -1,7 +1,9 @@
-import type { Preview } from '@storybook/react'
-import { Themes } from '@/utils/constants'
-import { withStyles } from './decorators/withStyles'
-import { withTheme } from './decorators/withTheme'
+import type { Preview } from '@storybook/react';
+
+import { Themes } from '@/utils/constants';
+
+import { withStyles } from './decorators/withStyles';
+import { withTheme } from './decorators/withTheme';
 
 const preview: Preview = {
   parameters: {
@@ -13,7 +15,7 @@ const preview: Preview = {
     },
   },
   decorators: [withStyles, withTheme],
-}
+};
 
 export const globalTypes = {
   theme: {
@@ -27,6 +29,6 @@ export const globalTypes = {
       dynamicTitle: true,
     },
   },
-}
+};
 
-export default preview
+export default preview;

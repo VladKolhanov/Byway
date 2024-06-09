@@ -1,12 +1,13 @@
-import { RenderHookOptions, renderHook } from '@testing-library/react'
-import { Themes } from '../constants'
-import { getProvidersWrapper } from './getProvidersWrapper'
+import { RenderHookOptions, renderHook } from '@testing-library/react';
 
-type RenderHookOptionsWithoutWrapper<P> = Omit<RenderHookOptions<P>, 'wrapper'>
+import { Themes } from '../constants';
+import { getProvidersWrapper } from './getProvidersWrapper';
+
+type RenderHookOptionsWithoutWrapper<P> = Omit<RenderHookOptions<P>, 'wrapper'>;
 
 interface RenderHookWithProviders<P>
   extends RenderHookOptionsWithoutWrapper<P> {
-  theme?: Themes | undefined
+  theme?: Themes | undefined;
 }
 
 export const renderHookWithProviders = <P,>(
@@ -16,5 +17,5 @@ export const renderHookWithProviders = <P,>(
   return renderHook<P, any>(hook, {
     wrapper: getProvidersWrapper(theme),
     ...options,
-  })
-}
+  });
+};

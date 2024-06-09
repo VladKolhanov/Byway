@@ -12,4 +12,4 @@ export default {
     require('postcss-media-minmax'),
     require('postcss-assets')({ loadPaths: ['public/assets/'] }),
   ],
-}
+};

@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express'
 
-import { RequestWithBody } from '@/types/requests'
-import { IStudent } from '@/types/models'
-import { RegistrationInputData } from '@/types/inputs'
 import { studentsService } from '@/services'
+import { RegistrationInputData } from '@/types/inputs'
+import { IStudent } from '@/types/models'
+import { RequestWithBody } from '@/types/requests'
 import { StatusCodes } from '@/utils/constants'
 
 //TODO: create students service

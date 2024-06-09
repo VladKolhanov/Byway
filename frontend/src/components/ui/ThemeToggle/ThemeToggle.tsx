@@ -1,8 +1,9 @@
-import { useTheme } from '@/utils/hooks'
-import s from './ThemeToggle.module.css'
+import { useTheme } from '@/utils/hooks';
+
+import s from './ThemeToggle.module.css';
 
 export const ThemeToggle = () => {
-  const { theme, changeTheme } = useTheme()
+  const { theme, changeTheme } = useTheme();
 
   return (
     <button
@@ -45,5 +46,5 @@ export const ThemeToggle = () => {
         </mask>
       </svg>
     </button>
-  )
-}
+  );
+};

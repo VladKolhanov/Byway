@@ -1,7 +1,7 @@
-import path from 'path'
+import { format } from 'date-fns'
 import fs from 'fs'
 import fsPromises from 'fs/promises'
-import { format } from 'date-fns'
+import path from 'path'
 import { v4 as uuid } from 'uuid'
 
 const PATH_LOGS_DIR = path.join(__dirname, '..', 'logs')

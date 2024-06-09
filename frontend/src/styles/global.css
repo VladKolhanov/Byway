@@ -8,6 +8,7 @@
 
 :root {
   @mixin light-theme;
+
   --transition-theme: none;
 
   &:is([data-transition='enabled']) {
