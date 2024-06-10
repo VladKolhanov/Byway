@@ -6,6 +6,7 @@ import { RegistrationInputData, UpdateProfileInputData } from '@/types/inputs'
 import { IStudent } from '@/types/models'
 import { ErrorMessages } from '@/utils/constants'
 import { ErrorConstructor, isTruthy } from '@/utils/helpers'
+import { checkValidId } from '@/utils/helpers/checkValidId'
 
 const getListStudents = async (): Promise<IStudent[]> => {
   const students = await StudentSchema.find().select('-password').exec()
@@ -36,39 +37,35 @@ const registration = async (
 
   const newStudent = new CreateStudentDTO(inputData, hashPassword)
 
-  try {
-    return await StudentSchema.create(newStudent)
-  } catch {
-    throw ErrorConstructor.badRequest(ErrorMessages.WRONG_MATCH_SCHEMA)
-  }
+  return await StudentSchema.create(newStudent)
 }
 
 const updateProfile = async (
   inputData: UpdateProfileInputData,
 ): Promise<IStudent> => {
-  const _id = inputData.id
+  const { id } = inputData
 
-  if (!_id) throw ErrorConstructor.badRequest(ErrorMessages.NOT_VALID_REQUEST)
+  checkValidId(id)
 
-  try {
-    return (await StudentSchema.findByIdAndUpdate(_id, inputData, {
-      new: true,
-    })) as IStudent
-  } catch {
+  const updatedProfile = await StudentSchema.findByIdAndUpdate(id, inputData, {
+    new: true,
+  })
+
+  if (!updatedProfile)
     throw ErrorConstructor.notFoundData(ErrorMessages.PROFILE_NOT_EXIST)
-  }
+
+  return updatedProfile
 }
 
-const deleteProfile = async (id: string) => {
-  const _id = id
+const deleteProfile = async (id: string): Promise<IStudent> => {
+  checkValidId(id)
 
-  if (!_id) throw ErrorConstructor.badRequest(ErrorMessages.NOT_VALID_REQUEST)
+  const deletedProfile = await StudentSchema.findByIdAndDelete(id)
 
-  try {
-    await StudentSchema.findByIdAndDelete(_id)
-  } catch {
+  if (!deletedProfile)
     throw ErrorConstructor.notFoundData(ErrorMessages.PROFILE_NOT_EXIST)
-  }
+
+  return deletedProfile
 }
 
 export default { getListStudents, registration, updateProfile, deleteProfile }

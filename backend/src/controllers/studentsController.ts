@@ -75,15 +75,13 @@ const updateStudent = async (
  */
 const deleteStudent = async (
   req: RequestWithParams<{ id: string }>,
-  res: Response,
+  res: Response<IStudent>,
   next: NextFunction,
 ) => {
   try {
-    await studentsService.deleteProfile(req.params.id)
+    const deletedProfile = await studentsService.deleteProfile(req.params.id)
 
-    res
-      .status(StatusCodes.OK)
-      .json({ message: 'Student profile deleted successfully' })
+    res.status(StatusCodes.OK).json(deletedProfile)
   } catch (err) {
     return next(err)
   }
