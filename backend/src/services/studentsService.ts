@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt'
 
 import { CreateStudentDTO } from '@/dtos'
 import { StudentSchema } from '@/models'
-import { RegistrationInputData } from '@/types/inputs'
+import { RegistrationInputData, UpdateProfileInputData } from '@/types/inputs'
 import { IStudent } from '@/types/models'
 import { ErrorMessages } from '@/utils/constants'
 import { ErrorConstructor, isTruthy } from '@/utils/helpers'
@@ -39,8 +39,36 @@ const registration = async (
   try {
     return await StudentSchema.create(newStudent)
   } catch {
-    throw ErrorConstructor.badRequest(ErrorMessages.WRONG_CREATED_STUDENT)
+    throw ErrorConstructor.badRequest(ErrorMessages.WRONG_MATCH_SCHEMA)
   }
 }
 
-export default { getListStudents, registration }
+const updateProfile = async (
+  inputData: UpdateProfileInputData,
+): Promise<IStudent> => {
+  const _id = inputData.id
+
+  if (!_id) throw ErrorConstructor.badRequest(ErrorMessages.NOT_VALID_REQUEST)
+
+  try {
+    return (await StudentSchema.findByIdAndUpdate(_id, inputData, {
+      new: true,
+    })) as IStudent
+  } catch {
+    throw ErrorConstructor.notFoundData(ErrorMessages.PROFILE_NOT_EXIST)
+  }
+}
+
+const deleteProfile = async (id: string) => {
+  const _id = id
+
+  if (!_id) throw ErrorConstructor.badRequest(ErrorMessages.NOT_VALID_REQUEST)
+
+  try {
+    await StudentSchema.findByIdAndDelete(_id)
+  } catch {
+    throw ErrorConstructor.notFoundData(ErrorMessages.PROFILE_NOT_EXIST)
+  }
+}
+
+export default { getListStudents, registration, updateProfile, deleteProfile }

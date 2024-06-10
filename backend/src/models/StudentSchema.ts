@@ -1,7 +1,9 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model } from 'mongoose';
 
-import { IStudent } from '@/types/models'
-import { Roles } from '@/utils/constants'
+import { IStudent } from '@/types/models';
+import { Roles } from '@/utils/constants';
+import { Languages } from '@/utils/constants';
+
 
 const StudentSchema = new Schema<IStudent>({
   firstName: {
@@ -50,7 +52,8 @@ const StudentSchema = new Schema<IStudent>({
   },
   language: {
     type: String,
-    default: '',
+    enum: Object.values(Languages),
+    default: Languages.EN,
   },
   roles: {
     type: [String],

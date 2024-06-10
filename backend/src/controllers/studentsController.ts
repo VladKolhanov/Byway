@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express'
 
 import { studentsService } from '@/services'
-import { RegistrationInputData } from '@/types/inputs'
+import { RegistrationInputData, UpdateProfileInputData } from '@/types/inputs'
 import { IStudent } from '@/types/models'
-import { RequestWithBody } from '@/types/requests'
+import { RequestWithBody, RequestWithParams } from '@/types/requests'
 import { StatusCodes } from '@/utils/constants'
 
 //TODO: create students service
@@ -32,7 +32,7 @@ const getAllStudents = async (
 
 /**
  * @desc create new student
- * @route POST /admin/students
+ * @route POST /auth
  * @access Private
  */
 const createStudent = async (
@@ -51,16 +51,18 @@ const createStudent = async (
 
 /**
  *  @desc update a student
- *  @route PATCH /admin/student
+ *  @route PATCH /student-profile
  *  @access Private
  */
 const updateStudent = async (
-  req: Request,
-  res: Response,
+  req: RequestWithBody<UpdateProfileInputData>,
+  res: Response<IStudent>,
   next: NextFunction,
 ) => {
   try {
-    console.log('+')
+    const updatedStudent = await studentsService.updateProfile(req.body)
+
+    res.status(StatusCodes.OK).json(updatedStudent)
   } catch (err) {
     return next(err)
   }
@@ -68,16 +70,20 @@ const updateStudent = async (
 
 /**
  *  @desc delete a student
- *  @route DELETE /admin/student
+ *  @route DELETE /admin/students
  *  @access Private
  */
 const deleteStudent = async (
-  req: Request,
+  req: RequestWithParams<{ id: string }>,
   res: Response,
   next: NextFunction,
 ) => {
   try {
-    console.log('+')
+    await studentsService.deleteProfile(req.params.id)
+
+    res
+      .status(StatusCodes.OK)
+      .json({ message: 'Student profile deleted successfully' })
   } catch (err) {
     return next(err)
   }
