@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { Themes } from '@/utils/constants';
-import { renderWithProviders } from '@/utils/helpers/renderWithProviders';
+import { renderWithProviders } from '@/utils/helpers';
 
 import { ThemeToggle } from './ThemeToggle';
 

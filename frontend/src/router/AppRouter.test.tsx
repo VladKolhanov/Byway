@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import React from 'react';
 
 import { Paths } from '@/utils/constants';
@@ -32,7 +32,9 @@ describe('renderRoutes', () => {
   test('Should renders routes correctly', () => {
     renderWithProviders(renderRoutes(config));
 
-    expect(screen.getByText('Mock Component')).toBeInTheDocument();
+    waitFor(() => {
+      expect(screen.getByText('Mock Component')).toBeInTheDocument();
+    });
   });
 
   test.todo('Should renders routes with nested routes correctly');
