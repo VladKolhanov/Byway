@@ -6,19 +6,23 @@ import path from 'path'
 import 'tsconfig-paths/register'
 
 import { corsOptions, startServer } from '@/config'
-import { errorHandler, logger } from '@/middleware'
+import { errorMiddleware, loggerMiddleware } from '@/middlewares'
 import router from '@/routes'
 
-const app = express()
+//TODO: close server and mongoose.connection after tests
 
-app.use(logger)
+const PORT = process.env.PORT || '4060'
+
+export const app = express()
+
+app.use(loggerMiddleware)
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(router)
-app.use(errorHandler)
+app.use(errorMiddleware)
 
-startServer(app).catch((err) =>
+startServer(app, PORT).catch((err) =>
   console.error(`Failed to start server: ${err.message}`),
 )

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 
-import { studentsService } from '@/services'
+import { studentService } from '@/services'
 import { RegistrationInputData, UpdateProfileInputData } from '@/types/inputs'
 import { IStudent } from '@/types/models'
 import { RequestWithBody, RequestWithParams } from '@/types/requests'
@@ -13,7 +13,7 @@ import { StatusCodes } from '@/utils/constants'
 
 /**
  *  @desc get list of all students
- *  @route GET /admin/students
+ *  @route GET /student
  *  @access Private
  */
 const getAllStudents = async (
@@ -22,7 +22,7 @@ const getAllStudents = async (
   next: NextFunction,
 ) => {
   try {
-    const users = await studentsService.getListStudents()
+    const users = await studentService.getListStudents()
 
     res.status(StatusCodes.OK).json(users)
   } catch (err) {
@@ -32,7 +32,7 @@ const getAllStudents = async (
 
 /**
  * @desc create new student
- * @route POST /auth
+ * @route POST /student/registration
  * @access Private
  */
 const createStudent = async (
@@ -41,7 +41,7 @@ const createStudent = async (
   next: NextFunction,
 ) => {
   try {
-    const createdStudent = await studentsService.registration(req.body)
+    const createdStudent = await studentService.registration(req.body)
 
     res.status(StatusCodes.CREATED).json(createdStudent)
   } catch (err) {
@@ -51,7 +51,7 @@ const createStudent = async (
 
 /**
  *  @desc update a student
- *  @route PATCH /student-profile
+ *  @route PATCH /student/profile
  *  @access Private
  */
 const updateStudent = async (
@@ -60,7 +60,7 @@ const updateStudent = async (
   next: NextFunction,
 ) => {
   try {
-    const updatedStudent = await studentsService.updateProfile(req.body)
+    const updatedStudent = await studentService.updateProfile(req.body)
 
     res.status(StatusCodes.OK).json(updatedStudent)
   } catch (err) {
@@ -70,7 +70,7 @@ const updateStudent = async (
 
 /**
  *  @desc delete a student
- *  @route DELETE /admin/students
+ *  @route DELETE /student/:id
  *  @access Private
  */
 const deleteStudent = async (
@@ -79,7 +79,7 @@ const deleteStudent = async (
   next: NextFunction,
 ) => {
   try {
-    const deletedProfile = await studentsService.deleteProfile(req.params.id)
+    const deletedProfile = await studentService.deleteProfile(req.params.id)
 
     res.status(StatusCodes.OK).json(deletedProfile)
   } catch (err) {
@@ -88,8 +88,8 @@ const deleteStudent = async (
 }
 
 export default {
-  createStudent,
   updateStudent,
   deleteStudent,
+  createStudent,
   getAllStudents,
 }

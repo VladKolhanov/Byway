@@ -5,3 +5,4 @@ dist
 storybook-static
 logs
 .env
+.env.local

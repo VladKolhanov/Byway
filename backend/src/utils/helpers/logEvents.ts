@@ -4,7 +4,7 @@ import fsPromises from 'fs/promises'
 import path from 'path'
 import { v4 as uuid } from 'uuid'
 
-const PATH_LOGS_DIR = path.join(__dirname, '..', 'logs')
+const PATH_LOGS_DIR = path.join(__dirname, '..', '..', 'logs')
 
 export const logEvents = async (event: string, fileName: string) => {
   const eventDate = format(new Date(), 'yyyyMMdd\tHH:mm:ss')

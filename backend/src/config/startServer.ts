@@ -2,12 +2,10 @@ import { Express } from 'express'
 
 import { runDB } from '@/config'
 
-const PORT = process.env.PORT || 3300
-
-export const startServer = async (app: Express) => {
+export const startServer = async (app: Express, port: string) => {
   await runDB()
 
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
+  return app.listen(port, () => {
+    console.log(`Server running on port ${port}`)
   })
 }
