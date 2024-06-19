@@ -9,7 +9,7 @@ const PATH_LOGS_DIR = path.join(__dirname, '..', '..', 'logs')
 export const logEvents = async (event: string, fileName: string) => {
   const eventDate = format(new Date(), 'yyyyMMdd\tHH:mm:ss')
   const eventItem = `${eventDate}\t${uuid()}\t${event}\n`
-
+  
   try {
     if (!fs.existsSync(PATH_LOGS_DIR)) {
       await fsPromises.mkdir(PATH_LOGS_DIR)

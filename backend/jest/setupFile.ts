@@ -1,9 +1,17 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+
+import { app } from '@/app';
+import { closeServer, startServer } from '@/config';
 
 beforeAll(async () => {
-  await mongoose.connect(process.env['DATABASE_URI'] as string)
-})
+  process.env.NODE_ENV === 'test';
+  await mongoose.connect(process.env['DATABASE_URI'] as string);
+  await startServer(app, 3030);
+});
 
 afterAll(async () => {
-  await mongoose.disconnect()
-})
+  process.env.NODE_ENV === 'production';
+  await mongoose.disconnect();
+  await closeServer();
+  console.log('Closed server');
+});

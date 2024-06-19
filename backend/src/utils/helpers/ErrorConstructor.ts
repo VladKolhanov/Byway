@@ -1,6 +1,6 @@
 import { ErrorMessages, StatusCodes } from '@/utils/constants'
 
-interface IErrorConstructor {
+export interface IErrorConstructor {
   status: number
   message: string
 }

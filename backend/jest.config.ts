@@ -1,5 +1,4 @@
-import type { Config } from 'jest';
-
+import type { Config } from 'jest'
 
 const config: Config = {
   rootDir: __dirname,
@@ -20,6 +19,8 @@ const config: Config = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+  testMatch: ['**/*.test.ts'],
+  testPathIgnorePatterns: ['/node_modules/'],
   testEnvironment: 'jest-environment-node',
   transform: {
     '.(ts|tsx)$': 'ts-jest',
@@ -27,6 +28,8 @@ const config: Config = {
   globalSetup: '<rootDir>/jest/globalSetup.ts',
   globalTeardown: '<rootDir>/jest/globalTeardown.ts',
   setupFilesAfterEnv: ['<rootDir>/jest/setupFile.ts'],
+  testTimeout: 15000,
+  maxWorkers: 1,
 }
 
 export default config
