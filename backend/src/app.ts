@@ -9,6 +9,8 @@ import { corsOptions, startServer } from '@/config';
 import { errorMiddleware, loggerMiddleware } from '@/middlewares';
 import router from '@/routes';
 
+//TODO: Tests for "logEvents" function and all middlewares
+
 const ENV = process.env.NODE_ENV || 'production';
 
 export const app = express();
