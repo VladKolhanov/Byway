@@ -2,7 +2,7 @@ import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { Themes } from '@/utils/constants';
-import { renderWithProviders } from '@/utils/helpers/renderWithProviders';
+import { renderWithProviders } from '@/utils/helpers';
 
 import { ThemeContext } from './ThemeProvider';
 import { THEME_STORAGE_KEY, reflectPreference } from './utils';

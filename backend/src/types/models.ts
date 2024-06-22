@@ -1,6 +1,7 @@
 import { Document, Types } from 'mongoose'
 
 import { Roles } from '@/config'
+import { Languages } from "@/utils/constants"
 
 //TODO: avatarImg Blob or string
 
@@ -14,7 +15,7 @@ export interface IStudent extends Document {
   avatarImg: string
   verified: boolean
   description: string
-  language: string
+  language: Languages
   roles: Roles[]
   socialNetworks: Map<string, string>
   coursesStudent: Types.ObjectId[]

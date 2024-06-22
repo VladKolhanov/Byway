@@ -1,4 +1,7 @@
-export interface RegistrationInputData {
+import { Languages } from '@/utils/constants'
+
+//TODO: avatarImg change later
+interface RegistrationInputData {
   fullName: {
     firstName: string
     lastName: string
@@ -8,3 +11,15 @@ export interface RegistrationInputData {
   repeatedPassword: string
   email: string
 }
+
+interface UpdateProfileInputData {
+  id: string
+  firstName?: string
+  lastName?: string
+  description?: string
+  language?: Languages
+  avatarImg?: string
+  socialNetworks?: Map<string, string>
+}
+
+export { RegistrationInputData, UpdateProfileInputData }

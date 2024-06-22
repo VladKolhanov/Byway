@@ -21,6 +21,6 @@ export const routerConfig: RouterConfig[] = [
   },
   {
     path: Paths.NOT_FOUND_404,
-    component: Page404
-  }
+    component: Page404,
+  },
 ];

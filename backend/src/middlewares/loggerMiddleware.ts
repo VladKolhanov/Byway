@@ -2,7 +2,11 @@ import { NextFunction, Request, Response } from 'express'
 
 import { logEvents } from '@/utils/helpers'
 
-export const logger = async (req: Request, _: Response, next: NextFunction) => {
+export const loggerMiddleware = async (
+  req: Request,
+  _: Response,
+  next: NextFunction,
+) => {
   await logEvents(
     `${req.method}\t${req.url}\t${req.headers.origin}`,
     'reqLog.log',

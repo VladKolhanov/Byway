@@ -1,1 +1,1 @@
-export { default as studentsService } from './studentsService'
+export { default as studentService } from './studentService'
