@@ -13,3 +13,5 @@ declare module '*.svg' {
   const content: (props: SVGProps<SVGSVGElement>) => ReactElement;
   export default content;
 }
+
+declare module '*.svg?url';

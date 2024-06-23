@@ -56,7 +56,7 @@ const config: StorybookConfig = {
         return rule;
       });
 
-      config.module.rules.push(svgLoader());
+      config.module.rules.push(...svgLoader());
       config.module.rules.push(...cssLoader());
     }
 

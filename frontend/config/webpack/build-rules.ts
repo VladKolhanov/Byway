@@ -5,6 +5,7 @@ import {
   babelLoader,
   cssLoader,
   fontsLoader,
+  mdxLoader,
   svgLoader,
 } from './loaders';
 import { WebpackBuildOptions } from './types';
@@ -12,9 +13,10 @@ import { WebpackBuildOptions } from './types';
 export const buildRules = ({ isDev }: WebpackBuildOptions): RuleSetRule[] => {
   return [
     babelLoader(),
+    mdxLoader(),
     ...cssLoader(isDev),
     assetLoader(isDev),
-    svgLoader(),
+    ...svgLoader(),
     fontsLoader(),
   ];
 };
