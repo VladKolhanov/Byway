@@ -26,6 +26,7 @@
 
   --bg-page-primary: var(--grey-950);
   --bg-page-secondary: var(--grey-900);
+  --color-text-active: var(--primary-500);
   --icon-fill-primary: var(--grey-100);
   --icon-fill-primary-hover: var(--grey-200);
   --icon-fill-secondary: var(--grey-300);
