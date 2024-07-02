@@ -8,13 +8,13 @@ import {
 
 import { Themes } from '@/utils/constants';
 
-import { ThemeContextType, ThemeProviderType } from './types';
 import {
   THEME_STORAGE_KEY,
   enableThemeTransition,
   getPrefersTheme,
   reflectPreference,
-} from './utils';
+} from './_utils';
+import { ThemeContextType, ThemeProviderType } from './types';
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);
 
@@ -26,9 +26,7 @@ export const ThemeProvider = ({
 
   /** This effect necessary for correct works toggle theme in Storybook */
   useEffect(() => {
-    // if (prefersTheme) {
     setTheme(getPrefersTheme(prefersTheme));
-    // }
   }, [prefersTheme]);
 
   const changeTheme = useCallback(() => {

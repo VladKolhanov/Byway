@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 
-import { Button, Icon, ThemeToggle } from '@/components/ui';
+import { useTheme } from '@/hooks';
+import { Button } from '@/ui/components/atoms/Button';
+import { Icon } from '@/ui/components/atoms/Icon';
+import { ThemeToggle } from '@/ui/components/organisms/ThemeToggle';
 import { Icons } from '@/utils/constants';
-import { useTheme } from '@/utils/hooks';
 
 const HomePage = () => {
   const { theme } = useTheme();
@@ -14,6 +16,7 @@ const HomePage = () => {
         <Link to="/instructor/dashboard">Instructor</Link>
         <Link to="/admin/main">Admin</Link>
       </div>
+      <Icon icon={Icons.PLUS} />
       <Button label="Label" size="md" variant="primary-1" />
       <Button label="Sign Up" size="xsm" variant="primary-2" />
       <Button label="Sign Up" variant="primary-3" />

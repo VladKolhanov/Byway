@@ -1,6 +1,6 @@
 import { IconGallery, IconItem } from '@storybook/blocks';
 
-import { Icon as IconExample } from '@/components/ui';
+import { Icon as IconExample } from '@/ui/components/atoms/Icon';
 import { Icons } from '@/utils/constants';
 
 import s from './Iconography.module.css';

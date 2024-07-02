@@ -1,4 +1,4 @@
-import { useTheme } from '@/utils/hooks';
+import { useTheme } from '@/hooks';
 
 import s from './ThemeToggle.module.css';
 

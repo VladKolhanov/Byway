@@ -8,7 +8,10 @@ import { renderRoutes } from './AppRouter';
 import { RouterConfig } from './types';
 
 const MockComponent = () => <div>Mock Component</div>;
-const LazyComponent = React.lazy(() => import('@/pages/HomePage'));
+
+const LazyComponent = React.lazy(
+  () => import('@/ui/components/pages/HomePage/HomePage'),
+);
 
 const config: RouterConfig[] = [
   {

@@ -1,4 +1,7 @@
-import { AdminPage, HomePage, InstructorPage, Page404 } from '@/pages';
+import { AdminPage } from '@/ui/components/pages/AdminPage';
+import { HomePage } from '@/ui/components/pages/HomePage';
+import { InstructorPage } from '@/ui/components/pages/InstructorPage';
+import { NotFoundPage } from '@/ui/components/pages/NotFoundPage';
 import { Paths } from '@/utils/constants';
 
 import { RouterConfig } from './types';
@@ -21,6 +24,6 @@ export const routerConfig: RouterConfig[] = [
   },
   {
     path: Paths.NOT_FOUND_404,
-    component: Page404,
+    component: NotFoundPage,
   },
 ];
