@@ -9,15 +9,15 @@
     "build:prod": "cross-env NODE_ENV=production webpack",
     "analyzer": "cross-env ANALYZER=true NODE_ENV=production webpack",
     "prettier": "prettier . --write",
-    "stylelint": "stylelint src/**/*.css",
     "stylelint:fix": "stylelint src/**/*.css --fix",
-    "eslint": "eslint --ext .ts,.tsx src/",
     "eslint:fix": "eslint --ext .ts,.tsx src/ --fix",
+    "type:check": "tsc --pretty --noEmit",
     "clean": "rd /s /q dist",
     "prepare": "cd .. && husky frontend/.husky",
     "test": "jest",
     "storybook": "storybook dev -c ./config/storybook -p 6006 ",
-    "build-storybook": "storybook build -c ./config/storybook"
+    "build-storybook": "storybook build -c ./config/storybook",
+    "commitlint": "commitlint --edit"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,9 @@
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
     "@chromatic-com/storybook": "^1.4.0",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@mdx-js/loader": "^3.0.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.13",
     "@storybook/addon-a11y": "^8.1.1",
     "@storybook/addon-actions": "^8.1.6",
@@ -56,6 +59,7 @@
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.7",
     "@testing-library/user-event": "^14.5.2",
+    "@total-typescript/ts-reset": "^0.5.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.12.11",
@@ -113,5 +117,11 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^5.3.4"
+  },
+  "volta": {
+    "node": "22.4.0",
+    "yarn": "4.3.1",
+    "pnpm": "9.4.0",
+    "npm": "10.8.1"
   }
 }

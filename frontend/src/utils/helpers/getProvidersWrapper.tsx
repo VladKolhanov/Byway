@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { MemoryRouter } from 'react-router-dom';
 
-import { ThemeProvider } from '@/providers';
+import { ThemeProvider } from '@/providers/ThemeProvider';
 
 import { Themes } from '../constants';
 

@@ -5,13 +5,13 @@ import { Themes } from '@/utils/constants';
 import { renderWithProviders } from '@/utils/helpers';
 
 import { ThemeContext } from './ThemeProvider';
-import { THEME_STORAGE_KEY, reflectPreference } from './utils';
+import { THEME_STORAGE_KEY, reflectPreference } from './_utils';
 
 const reflectPreferenceMock = jest.fn();
 const enableThemeTransitionMock = jest.fn();
 
-jest.mock('./utils', () => ({
-  ...jest.requireActual('./utils'),
+jest.mock('./_utils', () => ({
+  ...jest.requireActual('./_utils'),
   reflectPreference: jest.fn(() => reflectPreferenceMock()),
   enableThemeTransition: jest.fn(() => enableThemeTransitionMock()),
 }));

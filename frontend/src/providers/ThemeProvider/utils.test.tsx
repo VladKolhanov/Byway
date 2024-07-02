@@ -5,7 +5,7 @@ import {
   enableThemeTransition,
   getPrefersTheme,
   reflectPreference,
-} from './utils';
+} from './_utils';
 
 describe('reflectPreference', () => {
   beforeEach(() => {
