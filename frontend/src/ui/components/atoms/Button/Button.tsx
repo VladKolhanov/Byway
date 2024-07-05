@@ -14,8 +14,8 @@ interface Props {
   href?: Paths | string;
   variant?: Variants;
   size?: Sizes;
-  iconEnd?: keyof typeof Icons;
-  iconStart?: keyof typeof Icons;
+  iconEnd?: Icons;
+  iconStart?: Icons;
 }
 
 export const Button: FC<Props> = ({

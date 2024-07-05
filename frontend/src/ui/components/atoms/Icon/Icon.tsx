@@ -7,7 +7,7 @@ import { cn } from '@/utils/helpers';
 import css from './Icon.module.css';
 
 interface Props extends SVGProps<SVGSVGElement> {
-  icon: keyof typeof Icons | Icons;
+  icon: Icons;
   className?: string;
 }
 
