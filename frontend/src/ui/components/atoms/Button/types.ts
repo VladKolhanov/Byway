@@ -1,7 +1,3 @@
-import { ReactNode } from 'react';
-
-import { Paths } from '@/utils/constants';
-
 type Sizes = 'full_psm' | 'full_pm' | 'xsm' | 'sm' | 'md' | 'lg';
 
 type Variants =
@@ -20,14 +16,4 @@ type Variants =
   | 'ghost-1'
   | 'ghost-2';
 
-interface Props {
-  label: string | number;
-  className?: string;
-  href?: Paths | string;
-  variant?: Variants;
-  size?: Sizes;
-  iconEnd?: ReactNode;
-  iconStart?: ReactNode;
-}
-
-export { Props };
+export { Sizes, Variants };

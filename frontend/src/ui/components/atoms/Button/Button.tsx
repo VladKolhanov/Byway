@@ -1,10 +1,21 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Paths } from '@/utils/constants';
 import { cn } from '@/utils/helpers';
 
 import css from './Button.module.css';
-import { Props } from './types';
+import { Sizes, Variants } from './types';
+
+interface Props {
+  label: string | number;
+  className?: string;
+  href?: Paths | string;
+  variant?: Variants;
+  size?: Sizes;
+  iconEnd?: ReactNode;
+  iconStart?: ReactNode;
+}
 
 export const Button: FC<Props> = ({
   label,
