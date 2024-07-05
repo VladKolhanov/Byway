@@ -1,9 +1,10 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Paths } from '@/utils/constants';
+import { Icons, Paths } from '@/utils/constants';
 import { cn } from '@/utils/helpers';
 
+import { Icon } from '../Icon';
 import css from './Button.module.css';
 import { Sizes, Variants } from './types';
 
@@ -13,8 +14,8 @@ interface Props {
   href?: Paths | string;
   variant?: Variants;
   size?: Sizes;
-  iconEnd?: ReactNode;
-  iconStart?: ReactNode;
+  iconEnd?: keyof typeof Icons;
+  iconStart?: keyof typeof Icons;
 }
 
 export const Button: FC<Props> = ({
@@ -36,9 +37,9 @@ export const Button: FC<Props> = ({
 
   const content = () => (
     <>
-      {iconStart && iconStart}
+      {iconStart && <Icon icon={iconStart} />}
       {label}
-      {iconEnd && iconEnd}
+      {iconEnd && <Icon icon={iconEnd} />}
     </>
   );
 

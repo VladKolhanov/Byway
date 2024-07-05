@@ -1,9 +1,7 @@
 import { render, screen } from '@testing-library/react';
 
-import { Icons } from '@/utils/constants';
 import { renderWithProviders } from '@/utils/helpers';
 
-import { Icon } from '../Icon';
 import { Button } from './Button';
 
 describe('Button', () => {
@@ -52,9 +50,7 @@ describe('Button', () => {
   });
 
   test('Should render button component with icon', () => {
-    const { container } = render(
-      <Button label="Test" iconStart={<Icon icon={Icons.ADD_IMAGE} />} />,
-    );
+    const { container } = render(<Button label="Test" iconStart="ADD_IMAGE" />);
 
     const button = screen.getByRole('button');
     const icon = container.querySelector('svg');
