@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react';
 
 import { Themes } from '@/utils/constants';
 
+import { withRoutes } from './decorators/withRoutes';
 import { withStyles } from './decorators/withStyles';
 import { withTheme } from './decorators/withTheme';
 
@@ -14,7 +15,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [withStyles, withTheme],
+  decorators: [withStyles, withRoutes, withTheme],
 };
 
 export const globalTypes = {

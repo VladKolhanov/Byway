@@ -15,6 +15,7 @@
     "clean": "rd /s /q dist",
     "prepare": "cd .. && husky frontend/.husky",
     "test": "jest",
+    "test:watch": "jest --watch",
     "storybook": "storybook dev -c ./config/storybook -p 6006 ",
     "build-storybook": "storybook build -c ./config/storybook",
     "commitlint": "commitlint --edit"

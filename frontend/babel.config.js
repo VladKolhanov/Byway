@@ -6,7 +6,7 @@ if (isDev) {
   plugins.push('react-refresh/babel');
 }
 
-export default {
+module.exports = {
   presets: [
     ['@babel/preset-env', { targets: { node: 'current' } }],
     ['@babel/preset-react', { runtime: 'automatic' }],

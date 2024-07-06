@@ -6,8 +6,6 @@ import { ThemeProvider } from '@/providers/ThemeProvider';
 
 import './styles/global.css';
 
-//TODO: storybook: create Styleguide
-
 createRoot(document.getElementById('root')!).render(
   <ThemeProvider>
     <BrowserRouter>
