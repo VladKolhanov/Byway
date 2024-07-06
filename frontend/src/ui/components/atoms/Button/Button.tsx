@@ -6,7 +6,7 @@ import { cn } from '@/utils/helpers';
 
 import { Icon } from '../Icon';
 import css from './Button.module.css';
-import { Sizes, Variants } from './types';
+import { ColorScheme, Sizes, Variants } from './types';
 
 interface Props {
   label: string | number;
@@ -14,6 +14,7 @@ interface Props {
   href?: Paths | string;
   variant?: Variants;
   size?: Sizes;
+  colorScheme?: ColorScheme;
   iconEnd?: Icons;
   iconStart?: Icons;
 }
@@ -23,7 +24,8 @@ export const Button: FC<Props> = ({
   className,
   href,
   size = 'md',
-  variant = 'primary-6',
+  variant = 'primary',
+  colorScheme = 'blue',
   iconEnd,
   iconStart,
   ...props
@@ -32,6 +34,7 @@ export const Button: FC<Props> = ({
     css.button,
     css[`button_size_${size}`],
     css[`button_variant_${variant}`],
+    css[`button_color-scheme_${colorScheme}`],
     className,
   );
 

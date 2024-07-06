@@ -23,7 +23,8 @@ describe('Button', () => {
   });
 
   test('Should render component with default classes if arguments not provided', () => {
-    const expectClass = 'button button_size_md button_variant_primary-6';
+    const expectClass =
+      'button button_size_md button_variant_primary button_color-scheme_blue';
 
     render(<Button label="Test" />);
 
@@ -33,9 +34,9 @@ describe('Button', () => {
   });
 
   test('Should render component with custom classes if arguments provided', () => {
-    const expectClass = 'button button_size_xsm button_variant_ghost-2';
+    const expectClass = 'button button_size_md button_variant_primary';
 
-    render(<Button label="Test" size="xsm" variant="ghost-2" />);
+    render(<Button label="Test" size="md" variant="primary" />);
 
     const button = screen.getByRole('button');
 
