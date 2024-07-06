@@ -13,7 +13,9 @@ const mockUseTheme = jest.fn(() => ({
   changeTheme: jest.fn(() => changeThemeMock()),
 }));
 
-jest.mock('@/hooks', () => ({ useTheme: jest.fn(() => mockUseTheme()) }));
+jest.mock('@/hooks/useTheme', () => ({
+  useTheme: jest.fn(() => mockUseTheme()),
+}));
 
 describe('ThemeToggle', () => {
   beforeEach(() => {

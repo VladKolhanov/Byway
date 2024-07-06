@@ -4,7 +4,7 @@ import { ThemeContextType } from '@/providers/ThemeProvider/types';
 import { Themes } from '@/utils/constants';
 import { renderHookWithProviders } from '@/utils/helpers';
 
-import { useTheme } from '../useTheme';
+import { useTheme } from './useTheme';
 
 describe('useTheme', () => {
   test('should use theme context value when inside ThemeContext provider', () => {
